@@ -4,6 +4,7 @@ import Heading from "../Heading";
 import Image from "../Image";
 import Logo from '../../assets/Logo.png'
 import { FaFacebookF, FaLinkedinIn, FaInstagram } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -19,21 +20,31 @@ const Footer = () => {
                   className={"text-base font-bold text-hoverC mb-4.5"}
                 />
                 <ul className="flex flex-col gap-y-4">
+                  <Link to={"/"}>
                   <li className="text-base text-normal text-menuC hover:text-hoverC ">
                     Home
                   </li>
+                  </Link>
+                  <Link to={"/shop"}>  
                   <li className="text-base text-normal text-menuC hover:text-hoverC ">
                     Shop
                   </li>
+                  </Link>
+                  <Link to={"/about"}>
                   <li className="text-base text-normal text-menuC hover:text-hoverC ">
                     About
                   </li>
+                  </Link>
+                  <Link to={"/contact"}>
                   <li className="text-base text-normal text-menuC hover:text-hoverC ">
                     Contact
                   </li>
+                  </Link>
+                  <Link to={"/journal"}>
                   <li className="text-base text-normal text-menuC hover:text-hoverC ">
                     Journal
                   </li>
+                  </Link>                                   
                 </ul>
               </div>
                <div className="w-[90px]">
@@ -90,7 +101,9 @@ const Footer = () => {
                 <Heading text={'575 Crescent Ave. Quakertown, PA 18951'} as={'p'} className={'text-sm text-[#6D6D6D]'}/>
               </div>
               <div className="gap-x-40">
+                <Link to={"/"}>
                 <Image imgSrc={Logo} imgAlt={Logo}/>
+                </Link>
               </div>
               
             </div>
