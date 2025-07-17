@@ -6,12 +6,12 @@ import Flex from "./Flex";
 import Compare from "../assets/Icons/Compare";
 import ProductInfo from "./ProductInfo";
 
-const Product = ({imgSrc, imgAlt, badgeText, productInfoName, productPrice}) => {
+const Product = ({imgSrc, imgAlt, imgclassName, badgeText, badgeclassName, productInfoName, productPrice}) => {
   return (
     <>
       <div className="relative group">
-        <Image imgSrc={imgSrc} imgAlt={imgAlt} />
-        <Badge className={"absolute top-5 left-5"} badgeText={badgeText} />
+        <Image className={`${imgclassName}`} imgSrc={imgSrc} imgAlt={imgAlt} />
+        <Badge className={`absolute top-5 left-5 ${badgeclassName}`} badgeText={badgeText} />
         <div className="p-7.5 bg-white absolute bottom-10 left-0 w-full opacity-0 translate-y-5 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 ease-in-out">
             <Flex className="justify-end gap-x-4">
                 <Heading className={"text-base text-menuC"} text={"Add to Wish List"} as={"h6"}/>

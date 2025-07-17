@@ -8,16 +8,19 @@ import nArrival4 from "/src/assets/nArrival4.png";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import NextArrow from "../NextArrow";
+import PrevArrow from "../PrevArrow";
 
 const NewArrival = () => {
   var settings = {
-    dots: true,
+    dots: false,
     infinite: true,
-    speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,             
     autoplaySpeed: 1000,    
+    nextArrow: <NextArrow/>,
+    prevArrow: <PrevArrow/>
   };
 
   return (
@@ -29,7 +32,7 @@ const NewArrival = () => {
             text={"New Arrivals"}
             as="h3"
           />
-          <div className="first:pl-0 last:pr-0">
+          <div className={"-mx-3"}>
             <Slider {...settings}>
                 <div className="px-3">
                   <Product
