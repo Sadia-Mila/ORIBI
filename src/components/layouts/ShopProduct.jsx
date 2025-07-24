@@ -20,7 +20,7 @@ const ShopProduct = () => {
       <div className="py-8">
         <Container>
           <Heading
-            className={"font-bold text-[49px] text-hoverC mb-[157px]"}
+            className={"font-bold text-[49px] text-hoverC mb-[20px]"}
             text={"Products"}
             as={"h3"}
           />
