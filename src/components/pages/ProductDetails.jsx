@@ -96,8 +96,8 @@ const handleIncrement = () =>{
               <BiSolidDownArrow className={"absolute top-1/2 -translate-y-1/2 right-5"}/>
             </div>
           </Flex>
-          <Flex>
-            <p className={"text-base font-bold uppercase text-hoverC mr-20"}>
+          <Flex className={"mt-4"}>
+            <p className={"text-base font-bold uppercase text-hoverC mr-8 "}>
               Quantity :
             </p>
             <div className="py-2 px-1 border-1 border-[#F0F0F0] w-[130px] flex justify-around">
@@ -108,7 +108,7 @@ const handleIncrement = () =>{
             
           </Flex>
         <Flex className={"my-6"}>
-            <p className={"text-base font-bold uppercase text-hoverC mr-20"}>
+            <p className={"text-base font-bold uppercase text-hoverC mr-12"}>
               Status :
             </p>
             <select  className={"py-2 px-3 border-1 border-[#F0F0F0] w-[130px]" }>
