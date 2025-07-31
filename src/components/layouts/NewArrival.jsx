@@ -10,6 +10,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import NextArrow from "../NextArrow";
 import PrevArrow from "../PrevArrow";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const NewArrival = () => {
   var settings = {
@@ -23,6 +25,17 @@ const NewArrival = () => {
     prevArrow: <PrevArrow/>
   };
 
+  const [myProduct, setMyProduct] = useState ([]);
+  useEffect (()=>{
+   async function all() {
+    let data = await axios.get("https://dummyjson.com/products");
+      setMyProduct(data.data.products)
+    
+   }
+   all()
+  }, [])
+  
+
   return (
     <>
       <div className="pb-12">
@@ -34,53 +47,25 @@ const NewArrival = () => {
           />
           <div className={"-mx-3"}>
             <Slider {...settings}>
-                <div className="px-3">
+             {myProduct.map((item)=>(
+             <div key={item.id} className="px-3">
+          
                   <Product
-                    imgSrc={nArrival1}
-                    imgAlt={nArrival1}
-                    badgeText={"10%"}
-                    productInfoName={"Basic Crew Neck"}
-                    productPrice={"$34.00"}
-                  />
-                </div>
-                <div className="px-3">
-                  <Product
-                    imgSrc={nArrival2}
-                    imgAlt={nArrival2}
+                    imgSrc={item.thumbnail}
                     badgeText={"New"}
-                    productInfoName={"Watch"}
-                    productPrice={"$64.00"}
+                   productInfoName={"Basic Crew Neck"}
+                    productPrice={`$${item.price}`}
+                    productTitle={item.title}
+                  
                   />
-                </div>
-                <div className="px-3">
-                  <Product
-                    imgSrc={nArrival3}
-                    imgAlt={nArrival3}
-                    badgeText={"50%"}
-                    productInfoName={"Busket"}
-                    productPrice={"$50.00"}
-                  />
-                </div>
-                <div className="px-3">
-                  <Product
-                    imgSrc={nArrival4}
-                    imgAlt={nArrival4}
-                    badgeText={"Best"}
-                    productInfoName={"Baby Toy"}
-                    productPrice={"$80.00"}
-                  />
-                </div>
-                <div className="px-3">
-                  <Product
-                    imgSrc={nArrival2}
-                    imgAlt={nArrival2}
-                    badgeText={"New"}
-                    productInfoName={"Watch"}
-                    productPrice={"$64.00"}
-                  />
-                </div>
+             </div>
+
+
+            ))}
+                
+                
               
-            </Slider>
+             </Slider>
           </div>
         </Container>
       </div>
@@ -89,3 +74,41 @@ const NewArrival = () => {
 };
 
 export default NewArrival;
+
+
+                // <div className="px-3">
+                //   <Product
+                //     imgSrc={nArrival2}
+                //     imgAlt={nArrival2}
+                //     badgeText={"New"}
+                //     productInfoName={"Watch"}
+                //     productPrice={"$64.00"}
+                //   />
+                // </div>
+                // <div className="px-3">
+                //   <Product
+                //     imgSrc={nArrival3}
+                //     imgAlt={nArrival3}
+                //     badgeText={"50%"}
+                //     productInfoName={"Busket"}
+                //     productPrice={"$50.00"}
+                //   />
+                // </div>
+                // <div className="px-3">
+                //   <Product
+                //     imgSrc={nArrival4}
+                //     imgAlt={nArrival4}
+                //     badgeText={"Best"}
+                //     productInfoName={"Baby Toy"}
+                //     productPrice={"$80.00"}
+                //   />
+                // </div>
+                // <div className="px-3">
+                //   <Product
+                //     imgSrc={nArrival2}
+                //     imgAlt={nArrival2}
+                //     badgeText={"New"}
+                //     productInfoName={"Watch"}
+                //     productPrice={"$64.00"}
+                //   />
+                // </div>
