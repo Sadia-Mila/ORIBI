@@ -8,6 +8,7 @@ import Journal from "./components/pages/Journal";
 import Shop from "./components/pages/Shop";
 import About from "./components/pages/About";
 import ProductDetails from "./components/pages/ProductDetails";
+import Demo from "./components/pages/Demo";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/about" element={<About/>} />
           <Route path="/contact" element={<Contact/>} />
           <Route path="/journal" element={<Journal/>} />
+          <Route path="/demo" element={<Demo/>} />
           <Route path="*" element={<Error />} />
         </Route>
       </Routes>

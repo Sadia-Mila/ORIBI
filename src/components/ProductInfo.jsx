@@ -6,6 +6,7 @@ const ProductInfo = (props) => {
             >{props.productName}</h4>
       
         <h4 className={`text-base text-menuC ${props.className}`}>{props.productPrice}</h4>
+        <h4 className={`text-base text-hoverC ${props.className}`}>{props.productCategory}</h4>
       </div>     
     </>
   )

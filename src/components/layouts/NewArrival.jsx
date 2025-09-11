@@ -47,21 +47,39 @@ const NewArrival = () => {
           />
           <div className={"-mx-3"}>
             <Slider {...settings}>
-             {myProduct.map((item)=>(
-             <div key={item.id} className="px-3">
-          
-                  <Product
+              {myProduct.map((item)=>(
+             <div key={item.id}>
+              <div className="bg-gray-200 mx-3 p-5 rounded-lg ">
+                    <Product  className="mx-3"
                     imgSrc={item.thumbnail}
-                    badgeText={"New"}
-                   productInfoName={"Basic Crew Neck"}
-                    productPrice={`$${item.price}`}
+                     badgeText={"New"}
                     productTitle={item.title}
-                  
+                    productPrice={`$${item.price}`}      
                   />
+
+              </div>
+               {/* <div className="bg-gray-200 border-2 border-gray-400 mx-4 p-4 rounded-lg ">
+                  <img src={item.thumbnail} alt="" className="h-full" />
+                  
+                    <h3 className="text-red-800 mb-3 text-center font-semibold text-lg">{item.title}</h3>
+                  <div className="flex justify-between ">
+                    <h3 className="text-hoverC">${item.price}</h3>
+                    <h3 className="text-lg text-hoverC">{item.category}</h3>
+                    
+                  </div>
+                  <div className="flex justify-between">
+                    <p>Rating:{item.rating}</p>
+                    <p>Stork: {item.stock}</p>
+                  </div>
+                </div> */}
+          
+              
              </div>
 
 
             ))}
+
+                     
                 
                 
               
