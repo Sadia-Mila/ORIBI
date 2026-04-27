@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Container from "../Container";
 import Heading from "../Heading";
 import Flex from "../Flex";
@@ -14,8 +14,18 @@ import schoolBag from "/src/assets/schoolBag.png";
 import nArrival1 from "/src/assets/nArrival1.png";
 import jhuri from "/src/assets/jhuri.png";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const ShopProduct = () => {
+  // product
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    axios.get("http://localhost:3000/api/v1/product/allproductList").then(
+      (res) => setProducts(res.data.data),
+      // console.log(res.data.data)
+    );
+  }, [products]);
+  //product
   return (
     <>
       <div className="py-8">
@@ -191,10 +201,12 @@ const ShopProduct = () => {
                 </div>
                 <div className="">
                   <Flex className={"gap-x-3 "}>
-                    <Link to={"/productDetails"}>
+
+                  {products.map((item)=>(
+                    <Link to={`/productDetails/${item._id}`}>
                       <Product
-                        imgSrc={hamalDista}
-                        imgAlt={hamalDista}
+                        imgSrc={item.image}
+                        imgAlt={item.name}
                         imgclassName={"w-[350px]"}
                         badgeText={"New"}
                         productInfoName={"Basic Crew Neck Tee"}
@@ -202,6 +214,8 @@ const ShopProduct = () => {
                         badgeclassName={"bg-red-600"}
                       />
                     </Link>
+                  ))}
+                    
 
                     <Link to={"/productDetails"}>
                       <Product

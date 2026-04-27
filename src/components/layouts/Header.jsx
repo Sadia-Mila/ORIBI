@@ -8,14 +8,32 @@ import { IoSearchSharp } from "react-icons/io5";
 import { FaUser, FaSortDown, FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { RxCross2 } from "react-icons/rx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import axios from "axios";
 
 const Header = () => {
+  const [isCategory, setIsCategory] = useState(false);
+
   const [showCross, setShowCross] = useState(false);
   const data = useSelector((state) => state.cart.value);
-  
 
+  // Category
+  const handleCategoryList = () => {
+    setIsCategory(true);
+  };
+  // Category
+
+  // category
+  const [categories, setCategories] = useState([]);
+  useEffect(() => {
+    axios
+      .get(
+        "http://localhost:3000/api/v1/category/allcategorylist",
+      )
+      .then((res) => setCategories(res.data.data));
+  }, []);
+  // category list
 
   return (
     <>
@@ -59,14 +77,33 @@ const Header = () => {
       <div className="py-6.5 bg-menu2BG ">
         <Container>
           <Flex className={"justify-between"}>
-            <div className=" flex items-center gap-x-3">
+            <div
+              className=" flex items-center gap-x-3 relative"
+              onClick={handleCategoryList}
+            >
               <HiBars3BottomLeft className={"text-3xl"} />
+             
               <Heading
                 text={"Shop by Category"}
                 as={"h3"}
                 className={"text-sm text-hoverC"}
               />
+              {isCategory && (
+              <div className="absolute w-[200px] top-10 left-0 bg-gray-300 p-6 "> 
+                 {categories.map((item)=>(
+              <div className="flex justify-between items-center border-b-[1px] border-gray-100">
+                <p>{item.name} </p><span>&gt;</span>
+
+              </div>
+                ))} 
+                       
+              </div>
+            )}
+
+
+             
             </div>
+            
             <div className="flex relative">
               <input
                 type="text"
@@ -104,21 +141,20 @@ const Header = () => {
                         </li>
                         <li>{item.price}</li>
                         <li>{item.quantity}</li>
-                        <li className="text-bold">{parseInt(item.quantity * item.price.replace("$", ""))}</li>
-                        
+                        <li className="text-bold">
+                          {parseInt(
+                            item.quantity * item.price.replace("$", ""),
+                          )}
+                        </li>
                       </ul>
-                      
-                      
                     ))}
-                    <hr/>
+                    <hr />
                     <div className="flex justify-between pr-4">
                       <h2>Sub Total:</h2>
-                    <p>0</p>
+                      <p>0</p>
                     </div>
-                    
-                  </div>                  
+                  </div>
                 )}
-                
               </div>
             </div>
           </Flex>
