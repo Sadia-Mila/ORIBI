@@ -15,10 +15,10 @@ const OurBestSeller = () => {
         <Container>
             <Heading className={"text-[39px] font-bold text-hoverC mb-6"} text={"Our Best Sellers"} as={"h3"}/>
                 <Flex className={"gap-x-8"}>
-                    <Product imgSrc={waterPot} imgAlt={waterPot} badgeText={"New"} productInfoName={"Water Pot"} productPrice={"$80"}/>
-                    <Product imgSrc={officeBag} imgAlt={officeBag} badgeText={"30%"} productInfoName={"Office Bag"} productPrice={"$120"}/>
-                    <Product imgSrc={hamalDista} imgAlt={hamalDista} badgeText={"5%"} productInfoName={"Hamal Dista"} productPrice={"$50"}/>
-                    <Product imgSrc={schoolBag} imgAlt={schoolBag} badgeText={"New"} productInfoName={"School Bag"} productPrice={"$140"}/>
+                    <Product imgSrc={waterPot} imgAlt={waterPot} badgeText={"New"} productName={"Water Pot"} productPrice={"$80"}/>
+                    <Product imgSrc={officeBag} imgAlt={officeBag} badgeText={"30%"} productName={"Office Bag"} productPrice={"$120"}/>
+                    <Product imgSrc={hamalDista} imgAlt={hamalDista} badgeText={"5%"} productName={"Hamal Dista"} productPrice={"$50"}/>
+                    <Product imgSrc={schoolBag} imgAlt={schoolBag} badgeText={"New"} productName={"School Bag"} productPrice={"$140"}/>
                 </Flex>
         </Container>
     </div>

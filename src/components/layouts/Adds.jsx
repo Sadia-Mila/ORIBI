@@ -11,7 +11,7 @@ const Adds = () => {
   return (
     <div>
       <>
-        <div className="pt-[174px] pb-[128px] bg-white">
+        <div className="pt-[100px] pb-[80px] bg-white">
           <Container>
             <Flex className={"gap-x-8"}>
               <div className="">

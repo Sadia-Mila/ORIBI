@@ -1,16 +1,12 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { BiSolidDownArrow } from "react-icons/bi";
+import { FaStar, FaStarHalfAlt } from "react-icons/fa";
+import { useParams } from "react-router-dom";
 import Container from "../Container";
 import Flex from "../Flex";
-import Image from "../Image";
-import jhuri from "/src/assets/jhuri.png";
-import specialOffer4 from "/src/assets/specialOffer4.png";
-import specialOffer3 from "/src/assets/specialOffer3.png";
-import specialOffer2 from "/src/assets/specialOffer2.png";
 import Heading from "../Heading";
-import { FaStar, FaStarHalfAlt } from "react-icons/fa";
-import { BiSolidDownArrow } from "react-icons/bi";
-import { useParams } from "react-router-dom";
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import Image from "../Image";
 
 const ProductDetails = () => {
   const [count, setCount] = useState(1);
@@ -39,31 +35,31 @@ const ProductDetails = () => {
       <div className="py-6">
         <Container>
           <Flex>
-            <div className="flex justify-between flex-wrap gap-x-5 gap-y-6">
+            <div className="grid grid-cols-2 gap-5 w-full">
               <Image
-                className={"w-[49%]"}
-                imgSrc={singleProduct?.image}
+                className="w-full h-auto object-cover"
+                imgSrc={singleProduct?.thumbnailImage}
                 imgAlt={singleProduct?.name}
               />
               <Image
-                className={"w-[49%]"}
-                imgSrc={singleProduct?.image}
+                className="w-full h-auto object-cover"
+                imgSrc={singleProduct?.thumbnailImage}
                 imgAlt={singleProduct?.name}
               />
               <Image
-                className={"w-[49%]"}
-                imgSrc={singleProduct?.image}
+                className="w-full h-auto object-cover"
+                imgSrc={singleProduct?.thumbnailImage}
                 imgAlt={singleProduct?.name}
               />
               <Image
-                className={"w-[49%]"}
-                imgSrc={singleProduct?.image}
+                className="w-full h-auto object-cover"
+                imgSrc={singleProduct?.thumbnailImage}
                 imgAlt={singleProduct?.name}
               />
             </div>
           </Flex>
           <Heading
-            className={"text-bold text-[39px] text-hoverC mt-12"}
+            className={"font-bold text-[39px] text-hoverC mt-12"}
             text={singleProduct?.name}
             as={"h3"}
           />
@@ -77,7 +73,9 @@ const ProductDetails = () => {
           </Flex>
           <Flex>
             <del className={"text-base text-menuC"}>$88.00</del>
-            <span className={"text-xl text-hoverC ml-5"}>$44.00</span>
+            <span className={"text-xl text-hoverC ml-5"}>
+              {singleProduct?.price}
+            </span>
           </Flex>
           <hr className={"h-0.5 border-none bg-[#D8D8D8] mt-4 mb-2"} />
           <Flex className={"py-4"}>
@@ -101,7 +99,7 @@ const ProductDetails = () => {
             <div className="relative">
               <select
                 className={
-                  "py-2 px-5 border-1 border-[#F0F0F0] w-[130px] appearance-none"
+                  "py-2 px-5 border border-[#F0F0F0] w-[130px] appearance-none"
                 }
               >
                 <option>S</option>
@@ -119,7 +117,7 @@ const ProductDetails = () => {
             <p className={"text-base font-bold uppercase text-hoverC mr-8 "}>
               Quantity :
             </p>
-            <div className="py-2 px-1 border-1 border-[#F0F0F0] w-[130px] flex justify-around">
+            <div className="py-2 px-1 border border-[#F0F0F0] w-[130px] flex justify-around">
               <button
                 onClick={handleDecrement}
                 className={"font-bold text-lg text-hoverC "}
@@ -139,7 +137,7 @@ const ProductDetails = () => {
             <p className={"text-base font-bold uppercase text-hoverC mr-12"}>
               Status :
             </p>
-            <select className={"py-2 px-3 border-1 border-[#F0F0F0] w-[130px]"}>
+            <select className={"py-2 px-3 border border-[#F0F0F0] w-[130px]"}>
               <option>In Stock</option>
               <option>Out of Stock</option>
             </select>
